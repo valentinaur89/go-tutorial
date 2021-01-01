@@ -60,6 +60,24 @@ req := &mypro.MyRequest{Name: "ashaik"}
 res, err := client.MyGreetings(context.Background(), req)
 ```
 
+
+#### To make gRPC call through postman 
+
+Configuration of the proxy and its dependencies is a three step process.
+Register a JSON codec with the gRPC server. At Weave, this is as easy as using the most current version of our internal library. In Go, it can be automatically registered simple by adding the following import:
+1. import _"github.com/jnewmano/grpc-json-proxy/codec"
+2. Run the grpc-json-proxy.
+go get -u github.com/jnewmano/grpc-json-proxy 
+grpc-json-proxy
+3. Configure Postman to send requests through the proxy.
+Postman -> Preferences -> Proxy -> Global Proxy
+Proxy Server: localhost 7001
+4. Start server 
+```go run server.go```
+Server running on ... 127.0.0.1:8083
+
+
+
 ## REST vs gRPC
 
 |Rest API | gRPC|

@@ -7,6 +7,7 @@ import (
 	"log"
 	"net"
 
+	_ "github.com/jnewmano/grpc-json-proxy/codec"
 	"google.golang.org/grpc"
 )
 
