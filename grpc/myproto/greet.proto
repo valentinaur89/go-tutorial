@@ -1,0 +1,19 @@
+syntax="proto3";
+
+package mypro;
+
+option go_package=".;mypro";
+//option go_package="https://github.com/ashaik-dev/go-tutorial/mygrpc/myproto/mypro;mypro";
+
+
+message myRequest{
+    string name=1;
+}
+
+message myResponse{
+    string greetings=1;
+}
+
+service myService{
+    rpc myGreetings(myRequest) returns (myResponse){};
+}
