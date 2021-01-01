@@ -47,15 +47,15 @@ s:=grpc.NewServer()
 ```
  cc,err:=grpc.Dial("localhost:8083",opt)
 ```
-1. Dialing to port by 
+2. Dialing to port by 
 ```
 client := mypro.NewMyServiceClient(cc)
 ```
-1. Create request
+3. Create request
 ```
 req := &mypro.MyRequest{Name: "ashaik"}
 ```
-1. Call server method
+4. Call server method
 ```
 res, err := client.MyGreetings(context.Background(), req)
 ```
