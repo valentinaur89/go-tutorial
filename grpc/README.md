@@ -76,7 +76,12 @@ Proxy Server: localhost 7001
 ```go run server.go```
 Server running on ... 127.0.0.1:8083
 
-
+#### Postman request
+1. Set request method to Post .
+2. Set the URL to `http://{{ grpc server address}}/{{proto package}}.{{proto service}}/{{method}}` Always use http, proxy will establish a secure connection to the gRPC server.
+3. Set the `Content-Type` header to `application/grpc+json` .
+4. Optionally add a `Grpc-Insecure` header set to `true` for an insecure connection.
+5. Set the request body to appropriate JSON for the message. For reference, generated Go code includes JSON tags on the generated message structs.
 
 ## REST vs gRPC
 
