@@ -13,7 +13,7 @@ var dashboard = make(map[int]Bulletin, 0)
 //Using gin PostForm
 /*
 * How execute this program ?
-* $ go run model.go simpleBind.go
+* $ go run model.go simpleForm.go
 * How post data ?
 * curl --location --request POST 'http://localhost:8090/bulletin/ads' \
 --header 'Content-Type: application/json' \
