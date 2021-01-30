@@ -9,7 +9,7 @@ import (
 
 //Using gin Json Request
 /*
-* How execute this program ?
+* How to execute this program ?
 * $ go run model.go simpleBind.go
 * How post data ?
 * curl --location --request POST 'http://localhost:8090/bulletin' \
