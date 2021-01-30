@@ -5,7 +5,6 @@ import "fmt"
 func main() {
 
 	i := make([]interface{}, 0, 0)
-	// odd list
 	i = append(i, 10, "a", 30, 40)
 	fmt.Printf("Before ::%v ", i)
 	fmt.Printf("After::%v\n", revers(i))
