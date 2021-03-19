@@ -1,25 +1,58 @@
 ## grpc
 ### Prerequisites
 1. Install Go: https://golang.org/doc/install
-1. Install protoc : gRPC uses protobuf to communicate, in order to generate relevant files, you will need to install protoc :
-```brew install protobuf``` // For MacOS
-1. install protoc-gen-go : as we use go in this post, you will need the go-support for protobuf 
-```go get -u github.com/golang/protobuf/protoc-gen-go```
-1. install grpc : the grpc package for golang :
-```go get -u google.golang.org/grpc```
-(Note: make sure your GOPATH is correctly set up so that your packages and project will be under GOPATH/src )
-
-NOTE: Incase ```protoc-gen-go``` command not found. Then include following to your ~/.bash_profile
-
+2. Make sure your GOPATH, GOROOT and PATH are correctly set up so that your packages and project will be under GOPATH/src
+On Linux or Mac:
+Create /Users/<your_user>/go/src (HOME/go/src) directory
 ```
+cd
 export GO_PATH=~/go
-export PATH=$PATH:/$GO_PATH/bin
+export GOROOT=/usr/local/go
+export PATH=$PATH:/$GO_PATH/bin:$GOROOT
+```
+On Windows:
+Create C:\Projects\Go\src directory
+```
+setx GO_PATH "C:\Projects\Go"
+setx path "%path%;C:\Go\bin"
+```
+
+3. Install protoc : gRPC uses protobuf to communicate, in order to generate relevant files, you will need to install protoc :
+Linux, using apt or apt-get, for example:
+```apt install -y protobuf-compiler```
+MacOS, using Homebrew:
+```brew install protobuf```
+On Windows: https://grpc.io/docs/protoc-installation/#install-pre-compiled-binaries-any-os
+
+4. install protoc-gen-go : as we use go in this post, you will need the go-support for protobuf 
+```go get -u github.com/golang/protobuf/protoc-gen-go```
+5. install grpc : the grpc package for golang :
+```go get -u google.golang.org/grpc```
+
+7. Create project directory and clone go-tutorial project
+On Linux or Mac:
+```
+cd go/src
+mkdir github.com
+cd github.com
+git clone https://github.com/valentinaur89/go-tutorial.git
+cd go-tutorial/grpc
+```
+On Windows:
+```
+cd C:\Projects\Go\src
+mkdir github.com
+cd github.com
+git clone https://github.com/valentinaur89/go-tutorial.git
+cd go-tutorial/grpc
 ```
 
 ### Generate protobuf file
 1. generate protobuf file from myproto/greet.proto by executing 
 ```
-protoc --go_out=plugins=grpc:. *.proto
+protoc --go_out=. --go_opt=paths=source_relative \
+    --go-grpc_out=. --go-grpc_opt=paths=source_relative \
+    myproto/greet.proto
 ```
 
 ### Server
