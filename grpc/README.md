@@ -2,6 +2,7 @@
 ### Prerequisites
 1. Install Go: https://golang.org/doc/install
 2. Make sure your GOPATH, GOROOT and PATH are correctly set up so that your packages and project will be under GOPATH/src
+
 On Linux or Mac:
 Create /Users/<your_user>/go/src (HOME/go/src) directory
 ```
@@ -18,6 +19,7 @@ setx path "%path%;C:\Go\bin"
 ```
 
 3. Install protoc : gRPC uses protobuf to communicate, in order to generate relevant files, you will need to install protoc :
+
 Linux, using apt or apt-get, for example:
 ```apt install -y protobuf-compiler```
 MacOS, using Homebrew:
@@ -30,6 +32,7 @@ On Windows: https://grpc.io/docs/protoc-installation/#install-pre-compiled-binar
 ```go get -u google.golang.org/grpc```
 
 7. Create project directory and clone go-tutorial project
+
 On Linux or Mac:
 ```
 cd go/src
