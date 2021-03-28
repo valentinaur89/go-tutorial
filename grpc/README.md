@@ -1,3 +1,10 @@
+Install git 
+https://gitforwindows.org/
+restart cmd
+
+Install Visual Studio Code https://code.visualstudio.com/download
+Install go tools go get -v golang.org/x/tools/gopls
+
 ## grpc
 ### Prerequisites
 1. Install Go: https://golang.org/doc/install
@@ -12,10 +19,9 @@ export GOROOT=/usr/local/go
 export PATH=$PATH:/$GO_PATH/bin:$GOROOT
 ```
 On Windows:
-?? Not required Create C:\Projects\Go\src directory
-Create C:\Users\vklet\go\bin
+Create C:\Users\vklet\go\bin, src
 ```
-setx GO_PATH "C:\Projects\Go"
+setx gopath "C:\Users\vklet\go"
 setx path "%path%;C:\Go\bin"
 ```
 
@@ -51,12 +57,15 @@ cd go-tutorial/grpc
 ```
 On Windows:
 ```
-cd C:\Projects\Go\src
+cd C:\Users\vklet\go\src
 mkdir github.com
 cd github.com
 git clone https://github.com/valentinaur89/go-tutorial.git
 cd go-tutorial/grpc
 ```
+
+go mod init
+go mod tidy
 
 ### Generate protobuf file
 1. generate protobuf file from myproto/greet.proto by executing 
@@ -65,6 +74,7 @@ protoc --go_out=. --go_opt=paths=source_relative \
     --go-grpc_out=. --go-grpc_opt=paths=source_relative \
     myproto/greet.proto
 ```
+protoc --go_out=myproto myproto/greet.proto
 
 ### Server
 
