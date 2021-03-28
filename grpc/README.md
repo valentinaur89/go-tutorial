@@ -12,7 +12,8 @@ export GOROOT=/usr/local/go
 export PATH=$PATH:/$GO_PATH/bin:$GOROOT
 ```
 On Windows:
-Create C:\Projects\Go\src directory
+?? Not required Create C:\Projects\Go\src directory
+Create C:\Users\vklet\go\bin
 ```
 setx GO_PATH "C:\Projects\Go"
 setx path "%path%;C:\Go\bin"
@@ -25,6 +26,13 @@ Linux, using apt or apt-get, for example:
 MacOS, using Homebrew:
 ```brew install protobuf```
 On Windows: https://grpc.io/docs/protoc-installation/#install-pre-compiled-binaries-any-os
+Download from https://github.com/protocolbuffers/protobuf/releases
+protoc-3.15.6-win32.zip
+or
+protoc-3.15.6-win64.zip
+Extract zip and copy extracted folder into C:\Program Files
+Run cmd as administrator
+setx path "%path%;C:\Program Files\protoc-3.15.6-win64\bin"
 
 4. install protoc-gen-go : as we use go in this post, you will need the go-support for protobuf 
 ```go get -u github.com/golang/protobuf/protoc-gen-go```
